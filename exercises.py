@@ -159,21 +159,22 @@ def test_validate_dna():
 
 # ------------------------------------------------------------------------------
 
-# using Bio python would be one solution from Bio.Seq import Seq
+# using Bio python would be one solution
+# from Bio.Seq import Seq
 
-def base_pair(c, code="ATCGatcg"):
+def base_pair(c):
     """
     Return the corresponding character (lowercase)
     of the base pair. If the base is not recognized,
     return 'unknown'.
     """
-    for b in c:
-        if b not in code:
-            return 'unknown'
-        elif b == 'ATCG':
-            return b.lower()
-        else:
-            return b
+    complement = {'a': 't', 'c': 'g', 'g': 'c', 't': 'a', 'A' : 't', 'C': 'g', 'G': 'c', 'T': 'a'}
+    code="ATCGatcg"
+
+    if c not in code:
+        return 'unknown'
+    else:
+        return complement[c]
 
 
 def test_base_pair():
