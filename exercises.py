@@ -247,13 +247,13 @@ def test_get_reverse_complement():
 
 
 # ------------------------------------------------------------------------------
+substring = 'GAA'
 
 def remove_substring(substring, string):
     """
     Returns string with all occurrences of substring removed.
     """
-    bad_string = 'GAA'
-
+    return string.replace(substring,'')
 
 
 def test_remove_substring():
