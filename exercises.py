@@ -132,7 +132,6 @@ def find_longest_word(s):
         d[w] = [len(w)]
     return max(d.iterkeys(), key=lambda k: d[k])
 
-
 def test_find_longest_word():
     text = "Three tomatoes are walking down the street"
     assert find_longest_word(text) == "tomatoes"
@@ -142,13 +141,16 @@ def test_find_longest_word():
 
 # ------------------------------------------------------------------------------
 
-def validate_dna(s):
+def validate_dna(s, code="atcg"):
     """
     Return True if the DNA string only contains characters
     a, c, t, or g (lower or uppercase). False otherwise.
     """
-    return None
-
+    s = s.lower() #so you don't have to worry about upper and lower cases
+    for b in s:
+        if b not in code:
+            return False
+        return True
 
 def test_validate_dna():
     assert validate_dna('CCGGAAGAGCTTACTTAGccggaagagcttacttag')
@@ -157,13 +159,21 @@ def test_validate_dna():
 
 # ------------------------------------------------------------------------------
 
-def base_pair(c):
+# using Bio python would be one solution from Bio.Seq import Seq
+
+def base_pair(c, code="ATCGatcg"):
     """
     Return the corresponding character (lowercase)
     of the base pair. If the base is not recognized,
     return 'unknown'.
     """
-    return None
+    for b in c:
+        if b not in code:
+            return 'unknown'
+        elif b == 'ATCG':
+            return b.lower()
+        else:
+            return b
 
 
 def test_base_pair():
