@@ -29,7 +29,7 @@ def is_english_vowel(c):
     and False otherwise.
     """
 
-    if c == 'a' or 'e' or 'i' or 'o' or 'u':
+    if c == 'a' or 'e' or 'i' or 'o' or 'u' or 'A' or 'E' or 'I' or 'O' or 'U':
         return True
     else:
         return False
