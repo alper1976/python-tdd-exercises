@@ -32,7 +32,7 @@ def is_english_vowel(c):
     """
     c = c.lower() #so you don't have to worry about upper and lower cases
 
-    if c == 'a' or 'e' or 'i' or 'o' or 'u' or 'y':
+    if c in "aeiuoy":
         return True
     else:
         return False
@@ -57,7 +57,6 @@ def test_is_english_vowel():
 
 
 # ------------------------------------------------------------------------------
-
 
 
 def count_num_vowels(s):
@@ -88,7 +87,13 @@ def histogram(l):
     """
     Converts a list of integers into a simple string histogram.
     """
-    return None
+    list = []
+
+    for i in l:
+        list.append(i*'#')
+
+
+    return '\n'.join(list)
 
 
 def test_histogram():
@@ -102,7 +107,11 @@ def get_word_lengths(s):
     Returns a list of integers representing
     the word lengths in string s.
     """
-    return None
+    ss =  s.split()
+    list = []
+    for w in ss:
+        list.append(len(w))
+    return list
 
 
 def test_get_word_lengths():
@@ -117,7 +126,11 @@ def find_longest_word(s):
     Returns the longest word in string s.
     In case there are several, return the first.
     """
-    return None
+    ss =  s.split()
+    d = dict() #or {}
+    for w in ss:
+        d[w] = [len(w)]
+    return max(d.iterkeys(), key=lambda k: d[k])
 
 
 def test_find_longest_word():
