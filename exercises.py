@@ -1,9 +1,8 @@
 
+#l = [1, 2, 3, 4, 5]
+
 def reverse_list(l):
-    """
-    Reverses order of elements in list l.
-    """
-    return None
+    return l[::-1]
 
 
 def test_reverse_list():
@@ -12,11 +11,10 @@ def test_reverse_list():
 
 # ------------------------------------------------------------------------------
 
+#s = "foobar"
+
 def reverse_string(s):
-    """
-    Reverses order of characters in string s.
-    """
-    return None
+    return s[::-1]
 
 
 def test_reverse_string():
