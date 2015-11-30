@@ -197,7 +197,7 @@ def transcribe_dna_to_rna(s):
     Return string s with each letter T replaced by U.
     Result is always uppercase.
     """
-    return None
+    return s.upper().replace( 'T', 'U' )
 
 
 def test_transcribe_dna_to_rna():
@@ -207,12 +207,18 @@ def test_transcribe_dna_to_rna():
 
 # ------------------------------------------------------------------------------
 
+
 def get_complement(s):
     """
     Return the DNA complement in uppercase
     (A -> T, T-> A, C -> G, G-> C).
     """
-    return None
+    complement = {'A' : 'T', 'C': 'G', 'G': 'C', 'T': 'A'}
+    s = s.upper()
+    result = []
+    for n in s:
+        result.append(complement[n])
+    return ''.join(result)
 
 
 def test_get_complement():
@@ -227,7 +233,12 @@ def get_reverse_complement(s):
     Return the reverse complement of string s
     (complement reversed in order).
     """
-    return None
+    complement = {'A' : 'T', 'C': 'G', 'G': 'C', 'T': 'A'}
+    s = reverse_string(s.upper())           # reverse and change to upper case
+    result = []
+    for n in s:
+        result.append(complement[n])
+    return ''.join(result)
 
 
 def test_get_reverse_complement():
@@ -241,7 +252,8 @@ def remove_substring(substring, string):
     """
     Returns string with all occurrences of substring removed.
     """
-    return None
+    bad_string = 'GAA'
+
 
 
 def test_remove_substring():
