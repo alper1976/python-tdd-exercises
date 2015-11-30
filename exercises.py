@@ -23,13 +23,16 @@ def test_reverse_string():
 
 # ------------------------------------------------------------------------------
 
+
+
 def is_english_vowel(c):
     """
     Returns True if c is an english vowel
     and False otherwise.
     """
+    c = c.lower() #so you don't have to worry about upper and lower cases
 
-    if c == 'a' or 'e' or 'i' or 'o' or 'u' or 'y' or 'A' or 'E' or 'I' or 'O' or 'U' or 'Y':
+    if c == 'a' or 'e' or 'i' or 'o' or 'u' or 'y':
         return True
     else:
         return False
@@ -55,12 +58,16 @@ def test_is_english_vowel():
 
 # ------------------------------------------------------------------------------
 
-def count_num_vowels(s):
-    """
-    Returns the number of vowels in a string s.
-    """
-    return None
 
+
+def count_num_vowels(s):
+    vowels = "aeiuoy"
+    s = s.lower()
+    count = 0
+    for w in s:
+        if w in vowels:
+            count += 1
+    return count
 
 def test_count_num_vowels():
     sentence = "hey ho let's go"
